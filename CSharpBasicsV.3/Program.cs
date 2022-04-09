@@ -7,34 +7,27 @@ namespace Homework_4_part_1
 {
     class Program
     {
-        static void Main()
+        //        Написать программу, принимающую на вход строку — набор чисел, разделенных пробелом, и
+        //возвращающую число — сумму всех чисел в строке.Ввести данные с клавиатуры и вывести
+        //результат на экран.
+        static void Main(string[] args)
         {
-            string FLP = GetFullName();
-            Print(FLP);
+            int ansver = Split();
+            Console.WriteLine(ansver);
         }
-        static string GetFullName()
+
+        static int Split()
         {
-            Print("Hi! Enter your personal data, please:)");
-            Print("Enter u're first name:");
-            string firstName = ReadString();
-            Print("Enter u're last name:");
-            string lastName = ReadString();
-            Print("Enter u're patronymic:");
-            string patronymic = ReadString();
-            Print("Thx:) You've got pretty name! Youre full name is: ");
-            return lastName + " " + firstName + " " + patronymic;
-        }
-        static string Enter()
-        {
-            return Console.ReadLine();
-        }
-        static void Print(string words)
-        {
-            Console.WriteLine(words);
-        }
-        static string ReadString()
-        {
-            return Convert.ToString(Enter());
+            string SomeString = Console.ReadLine();
+            string[] SplitString = SomeString.Split(' ');
+
+            int el = 0;
+            for (int i = 0; i < SplitString.Length; i++)
+            {
+                int m = Convert.ToInt32(SplitString[i]);
+                el += m;
+            }
+            return el;
         }
     }
 }
