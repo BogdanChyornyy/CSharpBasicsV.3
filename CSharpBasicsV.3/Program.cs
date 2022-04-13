@@ -13,13 +13,13 @@ namespace HelloWorld
             string workDir = @"D:\Homework_Lesson_5";
             Console.WriteLine(Directory.Exists(workDir)); 
             
-            string notesDir = Path.Combine(workDir, "New directory 5.1");
+            string notesDir = Path.Combine(workDir, "New directory 5.2");
             
             Directory.CreateDirectory(notesDir); 
-            // Создаем вложенную директорию
-            string noteText = Console.ReadLine(); //Ввод данных в блокнот через консоль
             
-            string notePath = Path.Combine(notesDir, "EnterSomeText.txt");
+            string noteText = Convert.ToString(DateTime.Now);
+            
+            string notePath = Path.Combine(notesDir, "Startup.txt");
             
             File.WriteAllText(notePath, noteText);
         }
