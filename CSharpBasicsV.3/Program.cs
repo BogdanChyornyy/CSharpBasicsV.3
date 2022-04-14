@@ -10,18 +10,25 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            string workDir = @"D:\Homework_Lesson_5";
-            Console.WriteLine(Directory.Exists(workDir)); 
-            
-            string notesDir = Path.Combine(workDir, "New directory 5.2");
-            
-            Directory.CreateDirectory(notesDir); 
-            
-            string noteText = Convert.ToString(DateTime.Now);
-            
-            string notePath = Path.Combine(notesDir, "Startup.txt");
-            
-            File.WriteAllText(notePath, noteText);
+            string path = @"D:\Homework_Lesson_5\New directory 5.3\Example.bin";
+
+            using (BinaryWriter BW = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate)))
+            {                
+                BW.Write(NumEnter());       
+                BW.Close();      
+                Console.ReadKey();
+            }
+
+        static int NumEnter()
+            {
+                int num = Convert.ToInt32(Console.ReadLine());
+                while (num <= 0 || num > 255)
+                {
+                    Console.WriteLine("Uncorrect number!");
+                    num = Convert.ToByte(Console.ReadLine());
+                }                
+                return num;
+            }               
         }
     }
 }
